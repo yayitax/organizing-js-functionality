@@ -1,0 +1,36 @@
+{$extend "/master" $} {$define "#content" }
+
+<div id="content">
+
+    <h1>Secure Phrase Generator</h1>
+    <p>
+        Make a secure passphrase. Read <a href="/about">more about</a> how this works.
+    </p>
+
+    <form method="post" action="/" rel="js-form">
+        <p>
+            <select name="level" rel="js-level">
+				<option value="4">4 (weak)</option>
+				<option value="5">5 (ok)</option>
+				<option value="6" selected>6 (best)</option>
+				<option value="7">7 (overkill)</option>
+				<option value="8">8 (insane)</option>
+			</select> Word Count
+        </p>
+        <p><input id="localized" name="localized" type="checkbox" value="local" rel="js-local" checked> <label for="localized">Localized Randomness</label> (<a href="/about">?</a>) (otherwise, uses <a href="https://random.org">random.org</a>)</p>
+        <p>
+            <input type="submit" value="Generate Phrase" rel="js-btn-generate">
+        </p>
+    </form>
+
+    {$partial "#phrase_results" $}
+
+</div>
+
+{$} {$define "#phrase_results" }
+<div id="phrase_results" rel="js-phrase-results">
+    {$loop $.phrase_results | phrase = _.value } {$partial "#phrase" | _ $} {$}
+</div>
+{$} {$define "#phrase" }
+<p>{$insert phrase $}</p>
+{$}

@@ -1,0 +1,25 @@
+{$extend "/master" $} {$define "#content" }
+
+<div id="content">
+
+    <h1>About</h1>
+    <p>
+        This generator uses the <a href="http://world.std.com/~reinhold/diceware.html" data-ignore="yes">Diceware</a> algorithm and <a href="http://world.std.com/~reinhold/dicewarewordlist.pdf" data-ignore="yes">wordlist (PDF)</a> to generate a strong
+        passphrase to protect your password databases or other sensitive resources.
+    </p>
+    <p>
+        Instead of manually rolling physical dice, we simulate the dice rolls for you. You choose a phrase length of 4 to 8 words, and we randomly selected them from the word list. Now just memorize your new secure passphrase. It is not stored in anyway (either
+        in your browser or on our server), so once you leave the page, it will be gone!
+    </p>
+    <p>
+        By default, random number generation happens in JavaScript entirely in your browser. If you're using a modern browser, the random numbers come from a <a href="https://developer.mozilla.org/en-US/docs/Web/API/RandomSource/getRandomValues">cryptographically strong random number generator</a>        built into the browser. Older browsers fall back to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random"><strong>Math.random()</strong></a>, which is unfortunately not considered cryptographically
+        strong. In that case, you can uncheck "Localized Randomness" and the generator will pull more suitable numbers (over HTTPS!) from <a href="https://random.org">random.org</a>.
+    </p>
+    <p>
+        <strong>Note:</strong> If for some reason JS is not running (properly) in the page, the generator falls back to requesting random phrases from our server (which uses the same cryptographically strong number generation techniques, or random.org).
+        These numbers and words are not stored on our server in any way. There is also a simple API available for generating these phrases, which is basically the same as the fallback when browser JS is turned off or not working.
+    </p>
+
+</div>
+
+{$}
